@@ -10,8 +10,6 @@ namespace KataHundredDoors
     public class Ally
     {
         private ArrayList Doors = new ArrayList();
-        private const string CLOSED = "X|";
-        private const string OPEN = "O|";
 
         public Ally(int numberOfDoors)
         {
@@ -25,17 +23,7 @@ namespace KataHundredDoors
         public ArrayList GetDoors()
         {
             return Doors;
-        }        
-        
-        public string GetDoorsMap()
-        {
-            string result = string.Empty;
-            foreach (Door door in Doors)
-            {
-                result += (door.isOpen) ? OPEN : CLOSED;
-            }
-            return result += "\n";
-        }
+        }      
 
         public void ToogleDoorsEveryOther(int numberOfDoors)
         {
@@ -50,6 +38,19 @@ namespace KataHundredDoors
         {
             Door lastDoor = (Door)Doors[Doors.Count - 1];
             return lastDoor.isOpen;
+        }
+
+        public string GetDoorsMap()
+        {
+            const string CLOSED = "X|";
+            const string OPEN = "O|";
+
+            string result = string.Empty;
+            foreach (Door door in Doors)
+            {
+                result += (door.isOpen) ? OPEN : CLOSED;
+            }
+            return result += "\n";
         }
     }
 }
