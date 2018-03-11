@@ -12,7 +12,7 @@ namespace KataHundredDoors
         private ArrayList Doors = new ArrayList();
         private const string CLOSED = "X|";
         private const string OPEN = "O|";
-        
+
         public Ally(int numberOfDoors)
         {
             for (int i = 1; i < numberOfDoors + 1; i++)
@@ -21,12 +21,12 @@ namespace KataHundredDoors
                 Doors.Add(door);
             }
         }
-       
+
         public ArrayList GetDoors()
         {
             return Doors;
-        }
-
+        }        
+        
         public string GetDoorsMap()
         {
             string result = string.Empty;
@@ -48,12 +48,8 @@ namespace KataHundredDoors
 
         public bool LastDoorState()
         {
-            foreach (Door door in Doors)
-            {
-                if (door.number == Doors.Count)
-                    return door.isOpen;
-            }
-            return false;
+            Door lastDoor = (Door)Doors[Doors.Count - 1];
+            return lastDoor.isOpen;
         }
     }
 }
