@@ -22,10 +22,6 @@ namespace KataHundredDoors
             isOpen = !isOpen;
         }
 
-        internal void Close()
-        {
-            isOpen = false;
-        }
     }
 
 }
